@@ -1,0 +1,14 @@
+langchain               # for LLM-based workflows
+langchainhub            # for prompt and chain templates
+bs4                     # (BeautifulSoup) for web scraping
+tiktoken                # for tokenizing text
+openai                  # for OpenAI API interaction
+boto3==1.34.37          # for AWS service integration
+langchain_community     # for community-contributed LangChain modules
+chromadb                # for vector database storage
+awscli                  # for AWS command-line interface
+streamlit               # for creating interactive web apps
+pypdf                   # for PDF file processing
+faiss-cpu               # for efficient vector similarity search
+
+-e .                    # to install local Python packages in editable mode
