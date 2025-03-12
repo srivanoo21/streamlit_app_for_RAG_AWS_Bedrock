@@ -12,7 +12,7 @@ import os     # Operating system functionalities like creating directories and h
 prompt="""
 provide me one 4k hd image of person who is standing over the mount everest peak.
 """
-prompt_template=[{"text":prompt,"weight":1}]
+prompt_template=[{"text":prompt, "weight":1}]
 
 
 # This creates a Bedrock client to interact with AWS Bedrock service in the us-east-1 region.
@@ -33,7 +33,6 @@ payload={
     "steps":50,
     "width":512,
     "height":512
-    
 }
 
 # converting payload to json
@@ -74,7 +73,7 @@ image_bytes = base64.b64decode(image_encoded)
 
 # Saving Image Locally
 output_dir="output"
-os.makedirs(output_dir,exist_ok=True)
+os.makedirs(output_dir, exist_ok=True)
 file_name=f"{output_dir}/generated-img.png"
-with open(file_name,"wb") as f:
+with open(file_name, "wb") as f:
     f.write(image_bytes)

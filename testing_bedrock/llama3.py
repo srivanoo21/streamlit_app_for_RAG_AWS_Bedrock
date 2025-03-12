@@ -18,8 +18,7 @@ payload={
 }
 
 body = json.dumps(payload) 
-model_id = "meta.llama3-8b-instruct-v1:0" #  uncomment it to use this model
-
+model_id = "meta.llama3-8b-instruct-v1:0" 
 
 response = bedrock.invoke_model(
     body=body,

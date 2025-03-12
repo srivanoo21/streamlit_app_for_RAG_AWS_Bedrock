@@ -48,7 +48,7 @@ Assistant:"""
 # Converts the raw string into a LangChain PromptTemplate.
 # Defines the input variables that need to be passed during prompt execution.
 PROMPT=PromptTemplate(
-    template = prompt_template,input_variables=["context", "question"]
+    template = prompt_template, input_variables=["context", "question"]
 )
 
 # Get LLM Function
@@ -65,7 +65,7 @@ def get_llama3_llm():
 # return_source_documents=True returns the source documents along with the answer.
 # The prompt is passed using chain_type_kwargs
 
-def get_response_llm(llm,vectorstore_faiss, query):
+def get_response_llm(llm, vectorstore_faiss, query):
     qa=RetrievalQA.from_chain_type(
         llm=llm,
         chain_type="stuff",
@@ -85,5 +85,6 @@ if __name__=='__main__':
     
     query = "What is RAG token?"
     llm = get_llama3_llm()
-    print(get_response_llm(llm, faiss_index,query))
+
+    print(get_response_llm(llm, faiss_index, query))
     
