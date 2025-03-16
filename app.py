@@ -36,7 +36,7 @@ def main():
 
         if st.button("llama3 model"):
             with st.spinner("processing..."):
-                faiss_index=FAISS.load_local("faiss_index", bedrock_embeddings, allow_dangerous_deserialization=True)
+                faiss_index=FAISS.load_local("../faiss_index", bedrock_embeddings)
                 llm=get_llama3_llm()
 
                 st.write(get_response_llm(llm, faiss_index, user_question))

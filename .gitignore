@@ -1,6 +1,10 @@
 env
 .env
 /venv
+<<<<<<< HEAD
 User1_accessKeys.csv
 User1_accessKeys.csv 
 "User1_accessKeys.csv" 
+=======
+/venv2
+>>>>>>> temp_branch

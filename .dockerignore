@@ -6,3 +6,4 @@ output
 qasystem.egg-info
 testing_bedrock
 test.json
+/venv
