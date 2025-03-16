@@ -12,8 +12,6 @@ from langchain.vectorstores import FAISS
 from langchain.llms.bedrock import Bedrock
 import boto3
 from langchain.prompts import PromptTemplate
-from qasystem.ingestion import get_vector_store
-from qasystem.ingestion import data_ingestion
 from langchain_community.embeddings import BedrockEmbeddings
 
 # Initializes the AWS Bedrock runtime client using boto3.
@@ -58,14 +56,14 @@ def get_llama3_llm():
 
 
 # Response function:
-# RetrievalQA initializes the QA pipeline.
-# stuff chain type concatenates all retrieved documents into a single prompt.
-# vectorstore_faiss.as_retriever() converts the FAISS index into a retriever object for similarity search.
-# search_kwargs={"k": 3} means the top 3 most similar chunks will be retrieved.
-# return_source_documents=True returns the source documents along with the answer.
-# The prompt is passed using chain_type_kwargs
+# - RetrievalQA initializes the QA pipeline.
+# - stuff chain type concatenates all retrieved documents into a single prompt.
+# - vectorstore_faiss.as_retriever() converts the FAISS index into a retriever object for similarity search.
+# - search_kwargs={"k": 3} means the top 3 most similar chunks will be retrieved.
+# - return_source_documents=True returns the source documents along with the answer.
+# - The prompt is passed using chain_type_kwargs
 
-def get_response_llm(llm,vectorstore_faiss, query):
+def get_response_llm(llm, vectorstore_faiss, query):
     qa=RetrievalQA.from_chain_type(
         llm=llm,
         chain_type="stuff",
@@ -85,5 +83,6 @@ if __name__=='__main__':
     
     query = "What is RAG token?"
     llm = get_llama3_llm()
-    print(get_response_llm(llm, faiss_index,query))
+
+    print(get_response_llm(llm, faiss_index, query))
     

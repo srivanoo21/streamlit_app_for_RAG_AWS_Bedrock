@@ -19,14 +19,14 @@ import boto3
 
 
 # boto3.client initializes the AWS Bedrock client to interact with Bedrock's runtime AP
-bedrock=boto3.client(service_name="bedrock-runtime", region_name="us-east-1")
+bedrock = boto3.client(service_name="bedrock-runtime", region_name="us-east-1")
 
 # BedrockEmbeddings generates text embeddings using Amazon Titan Embedding Model.
-bedrock_embeddings=BedrockEmbeddings(model_id="amazon.titan-embed-text-v2:0",client=bedrock)
+bedrock_embeddings = BedrockEmbeddings(model_id="amazon.titan-embed-text-v2:0", client=bedrock)
 
 # Data Ingestion Function
 def data_ingestion():
-    # loader=PyPDFDirectoryLoader("../data/") uncomment this if called from ingestion.py
+    # loader=PyPDFDirectoryLoader("../data/") # uncomment this if called from ingestion.py
     loader=PyPDFDirectoryLoader("data/") # use this if called from app.py
     documents=loader.load()
     print(f"Number of loaded documents: {len(documents)}")  # Debugging step
